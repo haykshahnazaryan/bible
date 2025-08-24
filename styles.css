@@ -1,0 +1,883 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Armenian-inspired color palette */
+    --primary-color: #8B4513; /* Saddle Brown */
+    --secondary-color: #DAA520; /* Goldenrod */
+    --accent-color: #CD853F; /* Peru */
+    --text-dark: #2F2F2F;
+    --text-light: #6B6B6B;
+    --background-light: #FDF5E6; /* Old Lace */
+    --background-dark: #8B7355; /* Dark Khaki */
+    --white: #FFFFFF;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 8px 15px rgba(0, 0, 0, 0.2);
+    --border-radius: 8px;
+    --transition: all 0.3s ease;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', 'Noto Serif Armenian', serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--background-light);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Noto Serif Armenian', serif;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+    border-radius: 2px;
+}
+
+/* Armenian Text Specific Styling */
+.armenian-text {
+    font-family: 'Noto Serif Armenian', serif;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.hero-quote {
+    font-family: 'Noto Serif Armenian', serif;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--secondary-color);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    line-height: 1.2;
+}
+
+.hero-translation {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    font-style: italic;
+}
+
+/* Header */
+.header {
+    background: linear-gradient(135deg, var(--primary-color), var(--background-dark));
+    color: var(--white);
+    padding: 1rem 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow);
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    margin: 0;
+    color: var(--secondary-color);
+    font-family: 'Noto Serif Armenian', serif;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+    font-family: 'Noto Serif Armenian', serif;
+}
+
+.nav-link:hover {
+    color: var(--secondary-color);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--secondary-color);
+    transition: var(--transition);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.mobile-menu-btn span {
+    width: 25px;
+    height: 3px;
+    background: var(--white);
+    transition: var(--transition);
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: var(--white);
+    margin-top: 80px;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(139, 69, 19, 0.8), rgba(218, 165, 32, 0.6)), 
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23DAA520" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    background-size: cover;
+    z-index: -1;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--white);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-family: 'Noto Serif Armenian', serif;
+}
+
+.cta-button {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    color: var(--white);
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+    font-family: 'Noto Serif Armenian', serif;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* Bible Explorer Section */
+.bible-explorer {
+    padding: 5rem 0;
+    background: var(--white);
+    margin-top: 80px; /* Add margin for fixed header */
+}
+
+.search-filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: var(--background-light);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.search-box {
+    display: flex;
+    flex: 1;
+    min-width: 300px;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 1rem;
+    border: 2px solid var(--accent-color);
+    border-right: none;
+    border-radius: var(--border-radius) 0 0 var(--border-radius);
+    font-size: 1rem;
+    outline: none;
+    transition: var(--transition);
+    font-family: 'Inter', 'Noto Serif Armenian', sans-serif;
+}
+
+.search-box input:focus {
+    border-color: var(--secondary-color);
+}
+
+.search-box button {
+    padding: 1rem 1.5rem;
+    background: var(--secondary-color);
+    border: none;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    color: var(--white);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.search-box button:hover {
+    background: var(--accent-color);
+}
+
+.filter-options {
+    display: flex;
+    gap: 1rem;
+}
+
+.filter-options select {
+    padding: 1rem;
+    border: 2px solid var(--accent-color);
+    border-radius: var(--border-radius);
+    background: var(--white);
+    font-size: 1rem;
+    outline: none;
+    transition: var(--transition);
+    font-family: 'Inter', 'Noto Serif Armenian', sans-serif;
+}
+
+.filter-options select:focus {
+    border-color: var(--secondary-color);
+}
+
+.testaments {
+    display: grid;
+    gap: 3rem;
+}
+
+.testament-title {
+    font-size: 2rem;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: var(--background-light);
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--secondary-color);
+    font-family: 'Noto Serif Armenian', serif;
+}
+
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.book-item {
+    background: var(--white);
+    border: 2px solid var(--accent-color);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+}
+
+.book-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--secondary-color);
+}
+
+.book-title {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    text-align: center;
+    font-family: 'Noto Serif Armenian', serif;
+}
+
+.book-info {
+    text-align: center;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    font-family: 'Noto Serif Armenian', serif;
+    margin-bottom: 1rem;
+}
+
+.chapters-list {
+    display: none;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--accent-color);
+}
+
+.chapters-list.show {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+    gap: 0.5rem;
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 1rem;
+    background: var(--background-light);
+    border-radius: var(--border-radius);
+}
+
+.chapter-btn {
+    padding: 0.75rem 0.5rem;
+    background: var(--white);
+    border: 2px solid var(--accent-color);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: var(--transition);
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    min-width: 50px;
+}
+
+.chapter-btn:hover {
+    background: var(--secondary-color);
+    color: var(--white);
+    border-color: var(--secondary-color);
+    transform: scale(1.05);
+}
+
+.chapter-btn:active {
+    transform: scale(0.95);
+}
+
+.verses-display {
+    display: none;
+    margin-top: 1rem;
+    padding: 1rem;
+    background: var(--background-light);
+    border-radius: var(--border-radius);
+    max-height: 400px;
+    overflow-y: auto;
+    border: 2px solid var(--accent-color);
+}
+
+.verses-display.show {
+    display: block;
+}
+
+.verse-item {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(139, 69, 19, 0.2);
+    background: var(--white);
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.verse-item:hover {
+    background: var(--background-light);
+    transform: translateX(5px);
+}
+
+.verse-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.verse-number {
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-right: 0.75rem;
+    font-size: 1.1rem;
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    display: inline-block;
+    min-width: 40px;
+    text-align: center;
+}
+
+.verse-text {
+    font-family: 'Noto Serif Armenian', serif;
+    line-height: 1.6;
+    font-size: 1rem;
+    color: var(--text-dark);
+}
+
+/* Enhanced Chapter Display */
+.chapters-container {
+    margin-top: 1rem;
+}
+
+.chapters-header {
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    text-align: center;
+    font-family: 'Noto Serif Armenian', serif;
+}
+
+/* History and About Sections */
+.history, .about {
+    padding: 5rem 0;
+}
+
+.history {
+    background: var(--background-light);
+}
+
+.about {
+    background: var(--white);
+}
+
+.history-content, .about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.history-text p, .about-text p {
+    margin-bottom: 1.5rem;
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    font-family: 'Noto Serif Armenian', serif;
+}
+
+.about-text h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-family: 'Noto Serif Armenian', serif;
+}
+
+.placeholder-image {
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    color: var(--white);
+    box-shadow: var(--shadow);
+}
+
+/* Contact Section */
+.contact {
+    padding: 5rem 0;
+    background: var(--background-light);
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--white);
+    padding: 3rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.form-group {
+    margin-bottom: 2rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    font-family: 'Noto Serif Armenian', serif;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid var(--accent-color);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: var(--transition);
+    outline: none;
+    font-family: 'Inter', 'Noto Serif Armenian', sans-serif;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--secondary-color);
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    display: block;
+    font-family: 'Noto Serif Armenian', serif;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    color: var(--white);
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    font-family: 'Noto Serif Armenian', serif;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* Footer */
+.footer {
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 3rem 0 1rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h3,
+.footer-section h4 {
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    font-family: 'Noto Serif Armenian', serif;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+    font-family: 'Noto Serif Armenian', serif;
+}
+
+.footer-section a {
+    color: var(--white);
+    text-decoration: none;
+    transition: var(--transition);
+    font-family: 'Noto Serif Armenian', serif;
+}
+
+.footer-section a:hover {
+    color: var(--secondary-color);
+}
+
+.footer-section p {
+    font-family: 'Noto Serif Armenian', serif;
+    line-height: 1.6;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-links a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: var(--secondary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    background: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid var(--accent-color);
+    color: var(--text-light);
+}
+
+.footer-bottom p {
+    font-family: 'Noto Serif Armenian', serif;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .nav {
+        display: none;
+    }
+    
+    .mobile-menu-btn {
+        display: flex;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-quote {
+        font-size: 1.5rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .search-filter-bar {
+        flex-direction: column;
+    }
+    
+    .search-box {
+        min-width: auto;
+    }
+    
+    .filter-options {
+        flex-direction: column;
+    }
+    
+    .history-content,
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .books-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+    
+    .contact-form {
+        padding: 2rem;
+        margin: 0 15px;
+    }
+    
+    .chapters-list.show {
+        grid-template-columns: repeat(auto-fill, minmax(45px, 1fr));
+        gap: 0.4rem;
+    }
+    
+    .chapter-btn {
+        padding: 0.6rem 0.4rem;
+        font-size: 0.8rem;
+        min-width: 45px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-quote {
+        font-size: 1.2rem;
+    }
+    
+    .books-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .chapters-list.show {
+        grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+        gap: 0.3rem;
+    }
+    
+    .chapter-btn {
+        padding: 0.5rem 0.3rem;
+        font-size: 0.75rem;
+        min-width: 40px;
+    }
+}
+
+/* Utility Classes */
+.hidden {
+    display: none !important;
+}
+
+.show {
+    display: block !important;
+}
+
+/* Smooth transitions for interactive elements */
+.book-item,
+.chapter-btn,
+.nav-link,
+.cta-button,
+.submit-btn {
+    transition: var(--transition);
+}
+
+/* Focus states for accessibility */
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 2px solid var(--secondary-color);
+    outline-offset: 2px;
+}
+
+/* Loading states */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* Success and error states */
+.success {
+    border-color: #28a745 !important;
+}
+
+.error {
+    border-color: #dc3545 !important;
+}
+
+/* Armenian Language Support */
+[lang="hy"] {
+    font-family: 'Noto Serif Armenian', serif;
+}
+
+/* RTL Support for Armenian Text */
+.armenian-rtl {
+    direction: rtl;
+    text-align: right;
+}
+
+/* Enhanced Armenian Typography */
+.armenian-heading {
+    font-family: 'Noto Serif Armenian', serif;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.armenian-body {
+    font-family: 'Noto Serif Armenian', serif;
+    line-height: 1.7;
+    text-align: justify;
+}
+
+/* Armenian Quote Styling */
+.armenian-quote {
+    font-family: 'Noto Serif Armenian', serif;
+    font-style: italic;
+    font-size: 1.1em;
+    color: var(--primary-color);
+    border-left: 3px solid var(--secondary-color);
+    padding-left: 1rem;
+    margin: 1rem 0;
+}
+
+/* Bible-only specific styles */
+.bible-only .hero,
+.bible-only .history,
+.bible-only .about,
+.bible-only .contact {
+    display: none;
+}
+
+.bible-only .bible-explorer {
+    margin-top: 80px;
+    padding-top: 2rem;
+}
+
+/* Enhanced chapter button animations */
+.chapter-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.chapter-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.chapter-btn:hover::before {
+    left: 100%;
+}
+
+/* Scrollbar styling for verses display */
+.verses-display::-webkit-scrollbar {
+    width: 8px;
+}
+
+.verses-display::-webkit-scrollbar-track {
+    background: var(--background-light);
+    border-radius: 4px;
+}
+
+.verses-display::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 4px;
+}
+
+.verses-display::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-color);
+}

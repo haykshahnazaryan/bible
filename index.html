@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Հայկական Աստվածաշունչ - Bible Only</title>
+    <meta name="description" content="Հայկական Աստվածաշնչի ամբողջական բովանդակությունը - բոլոր գրքերը, գլուխները և տողերը:">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Armenian:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>📖 Հայկական Աստվածաշունչ</h1>
+            </div>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="#bible" class="nav-link">Աստվածաշունչ</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn" aria-label="Բացել բջջային ընտրացանկ">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Bible Explorer Section -->
+        <section id="bible" class="bible-explorer">
+            <div class="container">
+                <h2 class="section-title">Աստվածաշնչի Բացահայտիչ</h2>
+                
+                <!-- Search and Filter Bar -->
+                <div class="search-filter-bar">
+                    <div class="search-box">
+                        <input type="text" id="search-input" placeholder="Որոնել տողեր, գրքեր կամ բանալի բառեր...">
+                        <button type="button" id="search-btn">🔍</button>
+                    </div>
+                    <div class="filter-options">
+                        <select id="testament-filter">
+                            <option value="">Բոլոր Կտակարանները</option>
+                            <option value="old">Հին Կտակարան</option>
+                            <option value="new">Նոր Կտակարան</option>
+                        </select>
+                        <select id="book-filter">
+                            <option value="">Բոլոր Գրքերը</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Bible Content -->
+                <div class="bible-content">
+                    <div class="testaments">
+                        <!-- Old Testament -->
+                        <div class="testament" data-testament="old">
+                            <h3 class="testament-title">Հին Կտակարան (Old Testament)</h3>
+                            <div class="books-grid" id="old-testament-books"></div>
+                        </div>
+
+                        <!-- New Testament -->
+                        <div class="testament" data-testament="new">
+                            <h3 class="testament-title">Նոր Կտակարան (New Testament)</h3>
+                            <div class="books-grid" id="new-testament-books"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Հայկական Աստվածաշունչ</h3>
+                    <p>Պահպանելով Հայաստանի սուրբ գրքերը և մշակութային ժառանգությունը</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Գրքերի Ընդհանուր</h4>
+                    <ul>
+                        <li>Հին Կտակարան: 39 գիրք</li>
+                        <li>Նոր Կտակարան: 27 գիրք</li>
+                        <li>Ընդհանուր: 66 գիրք</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Տեղեկություն</h4>
+                    <p>Բոլոր գրքերը պարունակում են իրենց գլուխները և տողերը հայերենով:</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Հայկական Աստվածաշունչ: Բոլոր իրավունքները պաշտպանված են:</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
